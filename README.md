@@ -1,4 +1,4 @@
-# Baruwa REST API bindings for Ruby
+# Ruby bindings for Baruwa REST API
 
 This gem provides bindings for [Baruwa](https://www.baruwa.com/) [REST API](https://www.baruwa.com/docs/api/)
 

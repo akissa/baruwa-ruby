@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Andrew Colin Kissa"]
   s.email       = ["andrew@topdog.za.net"]
   s.homepage    = "https://github.com/akissa/baruwa-ruby"
-  s.summary     = %q{Baruwa REST API Ruby bundings.}
+  s.summary     = %q{Ruby bindings for Baruwa REST API}
   s.description = %q{Gem to access Baruwa REST API in ruby and ruby on rails applications.}
   s.license = "MPL-2.0"
 
