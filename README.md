@@ -1,6 +1,6 @@
-# Ruby bindings for Baruwa REST API
+# Ruby bindings for the Baruwa REST API
 
-This gem provides bindings for [Baruwa](https://www.baruwa.com/) [REST API](https://www.baruwa.com/docs/api/)
+This gem provides bindings for the [Baruwa](https://www.baruwa.com/) [REST API](https://www.baruwa.com/docs/api/)
 
 [![Test Coverage](https://codeclimate.com/github/akissa/baruwa-ruby/badges/coverage.svg)](https://codeclimate.com/github/akissa/baruwa-ruby/coverage)
 [![Build Status](https://travis-ci.org/akissa/baruwa-ruby.svg?branch=master)](https://travis-ci.org/akissa/baruwa-ruby)
