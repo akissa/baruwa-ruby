@@ -17,7 +17,7 @@ describe 'Test AD/LDAP Settings' do
         with(:body => false,
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.get_ldapsettings(domainid, serverid, settingsid)
@@ -31,7 +31,7 @@ describe 'Test AD/LDAP Settings' do
         with(:body => {},
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.create_ldapsettings(domainid, serverid, {})
@@ -46,7 +46,7 @@ describe 'Test AD/LDAP Settings' do
         with(:body => {},
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.update_ldapsettings(domainid, serverid, settingsid, {})
@@ -61,7 +61,7 @@ describe 'Test AD/LDAP Settings' do
         with(:body => {},
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.delete_ldapsettings(domainid, serverid, settingsid, {})

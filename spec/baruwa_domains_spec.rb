@@ -34,7 +34,7 @@ describe 'Test Domains' do
         with(:body => false,
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.get_domains()
@@ -47,7 +47,7 @@ describe 'Test Domains' do
         with(:body => false,
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.get_domain(domainid)
@@ -59,7 +59,7 @@ describe 'Test Domains' do
         with(:body => @baruwapi.get_params(dom),
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.create_domain(dom)
@@ -72,7 +72,7 @@ describe 'Test Domains' do
         with(:body => @baruwapi.get_params(dom),
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.update_domain(domainid, dom)
@@ -85,7 +85,7 @@ describe 'Test Domains' do
         with(:body => false,
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.delete_domain(domainid)

@@ -30,7 +30,7 @@ describe 'Test Users' do
         with(:body => false,
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.get_users()
@@ -43,7 +43,7 @@ describe 'Test Users' do
         with(:body => false,
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.get_user(userid)
@@ -55,7 +55,7 @@ describe 'Test Users' do
         with(:body => @baruwapi.get_params(user),
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.create_user(user)
@@ -67,7 +67,7 @@ describe 'Test Users' do
         with(:body => @baruwapi.get_params(user),
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.update_user(user)
@@ -80,7 +80,7 @@ describe 'Test Users' do
         with(:body => false,
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.delete_user(userid)
@@ -95,7 +95,7 @@ describe 'Test Users' do
         with(:body => @baruwapi.get_params(data),
             :headers => {'Accept'=>'*/*',
                         'Content-Type'=>'application/json',
-                        'User-Agent'=>'BaruwaAPI/Ruby',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
         @baruwapi.set_user_passwd(userid, data)
