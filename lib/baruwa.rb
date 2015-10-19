@@ -351,7 +351,7 @@ class BaruwaAPI
     def set_headers
         {
             'Content-Type' =>'application/json',
-            'User-Agent' => 'BaruwaAPI/Ruby',
+            'User-Agent' => 'BaruwaAPI-Ruby',
             'Authorization' => 'Bearer %s' % @baruwa_token
         }
     end
