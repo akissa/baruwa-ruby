@@ -2,8 +2,10 @@ require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 require 'simplecov'
 SimpleCov.start
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+if ENV['CI']=='true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 require 'rubygems'
 require 'json'
 require 'rspec'
