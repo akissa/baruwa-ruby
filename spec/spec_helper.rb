@@ -2,6 +2,8 @@ require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 require 'simplecov'
 SimpleCov.start
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
 require 'rubygems'
 require 'json'
 require 'rspec'
