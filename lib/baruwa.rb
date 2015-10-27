@@ -10,7 +10,7 @@ require "baruwa/version"
 require "json"
 require "net/http"
 
-class BaruwaAPIError < StandardError; end
+class BaruwaAPIError < StandardError;end
 
 class BaruwaAPI
     ENDPOINTS = {
@@ -86,6 +86,7 @@ class BaruwaAPI
     def initialize (url, token, ssl_verify=false)
       @baruwa_url = "#{url}/api/v1"
       @baruwa_token = token
+      @ssl_verify = ssl_verify
     end
 
     def get_users
@@ -379,7 +380,7 @@ class BaruwaAPI
                 JSON.parse(response.body)
             end
         else
-            raise BaruwaApiError.new("#{response.code} #{response.body.to_s}")
+            raise StandardError.new("#{response.code} #{response.body.to_s}")
         end
     end
 
