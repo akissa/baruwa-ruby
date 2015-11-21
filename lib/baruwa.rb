@@ -6,9 +6,11 @@
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
-require "baruwa/version"
+require "cgi"
 require "json"
 require "net/http"
+
+require "baruwa/version"
 
 class BaruwaAPIError < StandardError;end
 
@@ -347,13 +349,14 @@ class BaruwaAPI
         url_string = @baruwa_url + endpoint_string
         url_string << params if params
         uri = URI.parse(url_string)
+        return uri
     end
 
     def set_headers
         {
             'Content-Type' =>'application/json',
             'User-Agent' => 'BaruwaAPI-Ruby',
-            'Authorization' => 'Bearer %s' % @baruwa_token
+            'Authorization' => "Bearer #{@baruwa_token}"
         }
     end
 
@@ -380,7 +383,7 @@ class BaruwaAPI
                 JSON.parse(response.body)
             end
         else
-            raise StandardError.new("#{response.code} #{response.body.to_s}")
+            raise StandardError.new("#{response.code} #{response.body}")
         end
     end
 
