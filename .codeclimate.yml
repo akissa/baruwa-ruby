@@ -1,4 +1,12 @@
-languages:
-   Ruby: true
+---
+engines:
+  fixme:
+      enabled: true
+  rubocop:
+      enabled: true
+ratings:
+    paths:
+        - "**.rb"
 exclude_paths:
-- "test/*"
+    - "**.yml"
+    - spec/**/*
