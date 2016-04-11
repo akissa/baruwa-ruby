@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4
 # baruwa: Ruby bindings for the Baruwa REST API
-# Copyright (C) 2015 Andrew Colin Kissa <andrew@topdog.za.net>
+# Copyright (C) 2015-2016 Andrew Colin Kissa <andrew@topdog.za.net>
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
@@ -34,6 +34,7 @@ class BaruwaAPI
             :list => {:name => '/domains', :method => :get},
             :new => {:name => '/domains', :method => :post},
             :get => {:name => '/domains/%s', :method => :get},
+            :get_by_name => {:name => '/domains/byname/%s', :method => :get},
             :update => {:name => '/domains/%s', :method => :put},
             :delete => {:name => '/domains/%s', :method => :delete}
         },
@@ -149,6 +150,11 @@ class BaruwaAPI
     def get_domain(domainid)
         # get a domain
         call_api(ENDPOINTS[:domains][:get], [domainid])
+    end
+
+    def get_domain_by_name(domainname)
+        # get a domain by name
+        call_api(ENDPOINTS[:domains][:get_by_name], [domainname])
     end
 
     def create_domain(data)

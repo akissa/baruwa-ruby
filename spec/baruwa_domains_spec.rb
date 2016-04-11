@@ -54,6 +54,19 @@ describe 'Test Domains' do
         expect(WebMock).to have_requested(:get, "#{@baruwapi.instance_variable_get(:@baruwa_url)}/domains/#{domainid}")
     end
 
+    it 'should get a domain by name' do
+        domain_name = 'example.net'
+        stub_request(:get, "https://testbaruwa.com/api/v1/domains/byname/#{domain_name}").
+        with(:body => false,
+            :headers => {'Accept'=>'*/*',
+                        'Content-Type'=>'application/json',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
+                        'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
+        to_return(:status => 200, :body => "", :headers => {})
+        @baruwapi.get_domain_by_name(domain_name)
+        expect(WebMock).to have_requested(:get, "#{@baruwapi.instance_variable_get(:@baruwa_url)}/domains/byname/#{domain_name}")
+    end
+
     it 'should create a domain' do
         stub_request(:post, "https://testbaruwa.com/api/v1/domains").
         with(:body => @baruwapi.get_params(dom),
