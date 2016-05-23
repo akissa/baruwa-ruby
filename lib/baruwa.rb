@@ -84,6 +84,13 @@ class BaruwaAPI
             :update => {:name => '/relays/%s', :method => :put},
             :delete => {:name => '/relays/%s', :method => :delete}
         },
+        :fallbackservers => {
+            :list => {:name => '/fallbackservers/list/%s', :method => :get},
+            :new => {:name => '/fallbackservers/%s', :method => :post},
+            :get => {:name => '/fallbackservers/%s', :method => :get},
+            :update => {:name => '/fallbackservers/%s', :method => :put},
+            :delete => {:name => '/fallbackservers/%s', :method => :delete}
+        },
         :status => {:name => '/status', :method => :get}
     }
     def initialize (url, token, ssl_verify=false)
@@ -330,6 +337,31 @@ class BaruwaAPI
     def delete_relay(relayid, data)
         # delete relay settings
         call_api(ENDPOINTS[:relays][:delete], [relayid], data)
+    end
+
+    def get_fallbackservers(orgid)
+        # get fallback servers
+        call_api(ENDPOINTS[:fallbackservers][:list], [orgid])
+    end
+
+    def get_fallbackserver(serverid)
+        # get fallback server
+        call_api(ENDPOINTS[:fallbackservers][:get], [serverid])
+    end
+
+    def create_fallbackserver(orgid, data)
+        # create a fallback server
+        call_api(ENDPOINTS[:fallbackservers][:new], [orgid], data)
+    end
+
+    def update_fallbackserver(serverid, data)
+        # update a fallback server
+        call_api(ENDPOINTS[:fallbackservers][:update], [serverid], data)
+    end
+
+    def delete_fallbackserver(serverid, data)
+        # delete a fallback server
+        call_api(ENDPOINTS[:fallbackservers][:delete], [serverid], data)
     end
 
     def get_status
