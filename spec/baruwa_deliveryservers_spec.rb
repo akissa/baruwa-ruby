@@ -14,7 +14,6 @@ describe 'Test Delivery servers' do
         stub_request(:get, "https://testbaruwa.com/api/v1/deliveryservers/#{domainid}").
         with(:body => false,
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -28,7 +27,6 @@ describe 'Test Delivery servers' do
         stub_request(:get, "https://testbaruwa.com/api/v1/deliveryservers/#{domainid}/#{serverid}").
         with(:body => false,
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -41,7 +39,6 @@ describe 'Test Delivery servers' do
         stub_request(:post, "https://testbaruwa.com/api/v1/deliveryservers/#{domainid}").
         with(:body => {},
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -55,7 +52,6 @@ describe 'Test Delivery servers' do
         stub_request(:put, "https://testbaruwa.com/api/v1/deliveryservers/#{domainid}/#{serverid}").
         with(:body => {},
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -69,7 +65,6 @@ describe 'Test Delivery servers' do
         stub_request(:delete, "https://testbaruwa.com/api/v1/deliveryservers/#{domainid}/#{serverid}").
         with(:body => {},
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})

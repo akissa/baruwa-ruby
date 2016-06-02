@@ -29,7 +29,6 @@ describe 'Test Users' do
         stub_request(:get, "https://testbaruwa.com/api/v1/users").
         with(:body => false,
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -42,7 +41,6 @@ describe 'Test Users' do
         stub_request(:get, "https://testbaruwa.com/api/v1/users/#{userid}").
         with(:body => false,
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -54,7 +52,6 @@ describe 'Test Users' do
         stub_request(:post, "https://testbaruwa.com/api/v1/users").
         with(:body => @baruwapi.get_params(user),
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -66,7 +63,6 @@ describe 'Test Users' do
         stub_request(:put, "https://testbaruwa.com/api/v1/users").
         with(:body => @baruwapi.get_params(user),
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -79,7 +75,6 @@ describe 'Test Users' do
         stub_request(:delete, "https://testbaruwa.com/api/v1/users/#{userid}").
         with(:body => false,
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -94,7 +89,6 @@ describe 'Test Users' do
         stub_request(:post, "https://testbaruwa.com/api/v1/users/chpw/#{userid}").
         with(:body => @baruwapi.get_params(data),
             :headers => {'Accept'=>'*/*',
-                        'Content-Type'=>'application/json',
                         'User-Agent'=>'BaruwaAPI-Ruby',
                         'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
         to_return(:status => 200, :body => "", :headers => {})

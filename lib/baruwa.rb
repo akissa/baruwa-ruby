@@ -8,6 +8,7 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 require "cgi"
 require "json"
+require "openssl"
 require "net/http"
 
 require "baruwa/version"
@@ -392,7 +393,6 @@ class BaruwaAPI
 
     def set_headers
         {
-            'Content-Type' =>'application/json',
             'User-Agent' => 'BaruwaAPI-Ruby',
             'Authorization' => "Bearer #{@baruwa_token}"
         }
@@ -415,7 +415,7 @@ class BaruwaAPI
 
     def parse_response(response)
         if response.code.to_i == 200 || response.code.to_i == 201
-            if response.body.nil? || response.body.blank?
+            if response.body.nil? || response.body.empty?
                 {:code => response.code.to_i, :message => "Completed successfully"}
             else
                 JSON.parse(response.body)
