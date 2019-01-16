@@ -53,6 +53,13 @@ class BaruwaAPI
             :update => {:name => '/deliveryservers/%s/%s', :method => :put},
             :delete => {:name => '/deliveryservers/%s/%s', :method => :delete}
         },
+        :userdeliveryservers => {
+            :list => {:name => '/userdeliveryservers/%s', :method => :get},
+            :new => {:name => '/userdeliveryservers/%s', :method => :post},
+            :get => {:name => '/userdeliveryservers/%s/%s', :method => :get},
+            :update => {:name => '/userdeliveryservers/%s/%s', :method => :put},
+            :delete => {:name => '/userdeliveryservers/%s/%s', :method => :delete}
+        },
         :authservers => {
             :list => {:name => '/authservers/%s', :method => :get},
             :new => {:name => '/authservers/%s', :method => :post},
@@ -228,6 +235,31 @@ class BaruwaAPI
     def delete_deliveryserver(domainid, serverid, data)
         # delete delivery servers
         call_api(ENDPOINTS[:deliveryservers][:delete], [domainid, serverid], data)
+    end
+
+    def get_user_deliveryservers(domainid)
+        # get delivery servers
+        call_api(ENDPOINTS[:userdeliveryservers][:list], [domainid])
+    end
+
+    def get_user_deliveryserver(domainid, serverid)
+        # get a delivery server
+        call_api(ENDPOINTS[:userdeliveryservers][:get], [domainid, serverid])
+    end
+
+    def create_user_deliveryserver(domainid, data)
+        # create a delivery server
+        call_api(ENDPOINTS[:userdeliveryservers][:new], [domainid], data)
+    end
+
+    def update_user_deliveryserver(domainid, serverid, data)
+        # update a delivery server
+        call_api(ENDPOINTS[:userdeliveryservers][:update], [domainid, serverid], data)
+    end
+
+    def delete_user_deliveryserver(domainid, serverid, data)
+        # delete delivery servers
+        call_api(ENDPOINTS[:userdeliveryservers][:delete], [domainid, serverid], data)
     end
 
     def get_authservers(domainid)
