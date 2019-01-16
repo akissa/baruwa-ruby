@@ -3,6 +3,7 @@
 This gem provides bindings for the [Baruwa](https://www.baruwa.com/) [REST API](https://www.baruwa.com/docs/api/)
 
 [![Build Status](https://travis-ci.org/akissa/baruwa-ruby.svg?branch=master)](https://travis-ci.org/akissa/baruwa-ruby)
+[![codecov](https://codecov.io/gh/akissa/baruwa-ruby/branch/master/graph/badge.svg)](https://codecov.io/gh/akissa/baruwa-ruby)
 [![Gem Version](https://badge.fury.io/rb/baruwa.svg)](https://badge.fury.io/rb/baruwa)
 [![MPLv2 License](https://img.shields.io/badge/license-MPLv2-blue.svg?style=flat-square)](https://www.mozilla.org/MPL/2.0/)
 
