@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    steps:
+      - checkout
+      - run: bundle check || bundle install
+      - run:
+          command: bundle exec rspec spec
+          when: always
+      - store_test_results:
+          path: test/reports
