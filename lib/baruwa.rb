@@ -46,6 +46,13 @@ class BaruwaAPI
             :update => {:name => '/domainaliases/%s/%s', :method => :put},
             :delete => {:name => '/domainaliases/%s/%s', :method => :delete}
         },
+        :domainsmarthosts => {
+            :list => {:name => '/domains/smarthosts/%s', :method => :get},
+            :new => {:name => '/domains/smarthosts/%s', :method => :post},
+            :get => {:name => '/domains/smarthosts/%s/%s', :method => :get},
+            :update => {:name => '/domains/smarthosts/%s/%s', :method => :put},
+            :delete => {:name => '/domains/smarthosts/%s/%s', :method => :delete}
+        },
         :deliveryservers => {
             :list => {:name => '/deliveryservers/%s', :method => :get},
             :new => {:name => '/deliveryservers/%s', :method => :post},
@@ -210,6 +217,31 @@ class BaruwaAPI
     def delete_domainalias(domainid, aliasid, data)
         # delete a domain alias
         call_api(ENDPOINTS[:domainaliases][:delete], [domainid, aliasid], data)
+    end
+
+    def get_domain_smarthosts(domainid)
+        # get domain smarthosts
+        call_api(ENDPOINTS[:domainsmarthosts][:list], [domainid])
+    end
+
+    def get_domain_smarthost(domainid, smarthostid)
+        # get domain smarthost
+        call_api(ENDPOINTS[:domainsmarthosts][:get], [domainid, smarthostid])
+    end
+
+    def create_domain_smarthost(domainid, data)
+        # create a domain smarthost
+        call_api(ENDPOINTS[:domainsmarthosts][:new], [domainid], data)
+    end
+
+    def update_domain_smarthost(domainid, smarthostid, data)
+        # update a domain smarthost
+        call_api(ENDPOINTS[:domainsmarthosts][:update], [domainid, smarthostid], data)
+    end
+
+    def delete_domain_smarthost(domainid, smarthostid, data)
+        # delete a domain smarthost
+        call_api(ENDPOINTS[:domainsmarthosts][:delete], [domainid, smarthostid], data)
     end
 
     def get_deliveryservers(domainid)
