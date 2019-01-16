@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    docker:
+      - image: circleci/ruby
     steps:
       - checkout
       - run: bundle check || bundle install
