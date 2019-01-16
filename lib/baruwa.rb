@@ -106,6 +106,13 @@ class BaruwaAPI
             :update => {:name => '/fallbackservers/%s', :method => :put},
             :delete => {:name => '/fallbackservers/%s', :method => :delete}
         },
+        :orgsmarthosts => {
+            :list => {:name => '/organizations/smarthosts/%s', :method => :get},
+            :new => {:name => '/organizations/smarthosts/%s', :method => :post},
+            :get => {:name => '/organizations/smarthosts/%s/%s', :method => :get},
+            :update => {:name => '/organizations/smarthosts/%s/%s', :method => :put},
+            :delete => {:name => '/organizations/smarthosts/%s/%s', :method => :delete}
+        },
         :status => {:name => '/status', :method => :get}
     }
     def initialize (url, token, ssl_verify=false)
@@ -427,6 +434,31 @@ class BaruwaAPI
     def delete_fallbackserver(serverid, data)
         # delete a fallback server
         call_api(ENDPOINTS[:fallbackservers][:delete], [serverid], data)
+    end
+
+    def get_org_smarthosts(orgid)
+        # get organization smarthosts
+        call_api(ENDPOINTS[:orgsmarthosts][:list], [orgid])
+    end
+
+    def get_org_smarthost(orgid, smarthostid)
+        # get organization smarthost
+        call_api(ENDPOINTS[:orgsmarthosts][:get], [orgid, smarthostid])
+    end
+
+    def create_org_smarthost(orgid, data)
+        # create a organization smarthost
+        call_api(ENDPOINTS[:orgsmarthosts][:new], [orgid], data)
+    end
+
+    def update_org_smarthost(orgid, smarthostid, data)
+        # update a organization smarthost
+        call_api(ENDPOINTS[:orgsmarthosts][:update], [orgid, smarthostid], data)
+    end
+
+    def delete_org_smarthost(orgid, smarthostid, data)
+        # delete a organization smarthost
+        call_api(ENDPOINTS[:orgsmarthosts][:delete], [orgid, smarthostid], data)
     end
 
     def get_status
