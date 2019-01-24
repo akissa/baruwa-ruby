@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.version     = Baruwa::VERSION
   s.authors     = ["Andrew Colin Kissa"]
   s.email       = ["andrew@topdog.za.net"]
-  s.homepage    = "https://github.com/akissa/baruwa-ruby"
+  s.homepage    = "https://github.com/baruwa-enterprise/baruwa-ruby"
   s.summary     = %q{Ruby bindings for the Baruwa REST API}
   s.description = %q{Gem to access the Baruwa REST API in ruby and ruby on rails applications.}
   s.license     = "MPL-2.0"
