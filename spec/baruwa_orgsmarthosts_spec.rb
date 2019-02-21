@@ -21,6 +21,19 @@ describe 'Test Organization Smarthosts' do
         expect(WebMock).to have_requested(:get, "#{@baruwapi.instance_variable_get(:@baruwa_url)}/organizations/smarthosts/#{orgid}")
     end
 
+    it 'should get organization smarthosts with pagination' do
+        page = 1
+        orgid = 10
+        stub_request(:get, "https://testbaruwa.com/api/v1/organizations/smarthosts/#{orgid}?page=#{page}").
+        with(:body => false,
+            :headers => {'Accept'=>'*/*',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
+                        'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
+        to_return(:status => 200, :body => "", :headers => {})
+        @baruwapi.get_org_smarthosts(orgid, page)
+        expect(WebMock).to have_requested(:get, "#{@baruwapi.instance_variable_get(:@baruwa_url)}/organizations/smarthosts/#{orgid}?page=#{page}")
+    end
+
     it 'should get a organization smarthost' do
         orgid = 10
         smarthostid = 1

@@ -20,6 +20,18 @@ describe 'Test Organizations' do
         expect(WebMock).to have_requested(:get, "#{@baruwapi.instance_variable_get(:@baruwa_url)}/organizations")
     end
 
+    it 'should get organizations with pagination' do
+        page = 1
+        stub_request(:get, "https://testbaruwa.com/api/v1/organizations?page=#{page}").
+        with(:body => false,
+            :headers => {'Accept'=>'*/*',
+                        'User-Agent'=>'BaruwaAPI-Ruby',
+                        'Authorization'=>'Bearer 6e2347bc-278e-42f6-a84b-fa1766140cbd'}).
+        to_return(:status => 200, :body => "", :headers => {})
+        @baruwapi.get_organizations(page)
+        expect(WebMock).to have_requested(:get, "#{@baruwapi.instance_variable_get(:@baruwa_url)}/organizations?page=#{page}")
+    end
+
     it 'should get an organization' do
         orgid = 10
         stub_request(:get, "https://testbaruwa.com/api/v1/organizations/#{orgid}").
