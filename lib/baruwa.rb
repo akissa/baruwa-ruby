@@ -121,9 +121,13 @@ class BaruwaAPI
       @ssl_verify = ssl_verify
     end
 
-    def get_users
+    def get_users(page=nil)
         # get users
-        call_api(ENDPOINTS[:users][:list])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:users][:list], [], false, params)
     end
 
     def get_user(userid)
@@ -171,9 +175,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:aliases][:delete], [addressid], data)
     end
 
-    def get_domains
+    def get_domains(page=nil)
         # get domains
-        call_api(ENDPOINTS[:domains][:list])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:domains][:list], [], false, params)
     end
 
     def get_domain(domainid)
@@ -201,9 +209,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:domains][:delete], [domainid])
     end
 
-    def get_domainaliases(domainid)
+    def get_domainaliases(domainid, page=nil)
         # get domain aliases
-        call_api(ENDPOINTS[:domainaliases][:list], [domainid])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:domainaliases][:list], [domainid], false, params)
     end
 
     def get_domainalias(domainid, aliasid)
@@ -226,9 +238,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:domainaliases][:delete], [domainid, aliasid], data)
     end
 
-    def get_domain_smarthosts(domainid)
+    def get_domain_smarthosts(domainid, page=nil)
         # get domain smarthosts
-        call_api(ENDPOINTS[:domainsmarthosts][:list], [domainid])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:domainsmarthosts][:list], [domainid], false, params)
     end
 
     def get_domain_smarthost(domainid, smarthostid)
@@ -251,9 +267,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:domainsmarthosts][:delete], [domainid, smarthostid], data)
     end
 
-    def get_deliveryservers(domainid)
+    def get_deliveryservers(domainid, page=nil)
         # get delivery servers
-        call_api(ENDPOINTS[:deliveryservers][:list], [domainid])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:deliveryservers][:list], [domainid], false, params)
     end
 
     def get_deliveryserver(domainid, serverid)
@@ -276,9 +296,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:deliveryservers][:delete], [domainid, serverid], data)
     end
 
-    def get_user_deliveryservers(domainid)
+    def get_user_deliveryservers(domainid, page=nil)
         # get delivery servers
-        call_api(ENDPOINTS[:userdeliveryservers][:list], [domainid])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:userdeliveryservers][:list], [domainid], false, params)
     end
 
     def get_user_deliveryserver(domainid, serverid)
@@ -301,9 +325,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:userdeliveryservers][:delete], [domainid, serverid], data)
     end
 
-    def get_authservers(domainid)
+    def get_authservers(domainid, page=nil)
         # get auth servers
-        call_api(ENDPOINTS[:authservers][:list], [domainid])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:authservers][:list], [domainid], false, params)
     end
 
     def get_authserver(domainid, serverid)
@@ -366,9 +394,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:radiussettings][:delete], [domainid, serverid, settingsid], data)
     end
 
-    def get_organizations
+    def get_organizations(page=nil)
         # get organizations
-        call_api(ENDPOINTS[:organizations][:list])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:organizations][:list], [], false, params)
     end
 
     def get_organization(orgid)
@@ -411,9 +443,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:relays][:delete], [relayid], data)
     end
 
-    def get_fallbackservers(orgid)
+    def get_fallbackservers(orgid, page=nil)
         # get fallback servers
-        call_api(ENDPOINTS[:fallbackservers][:list], [orgid])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:fallbackservers][:list], [orgid], false, params)
     end
 
     def get_fallbackserver(serverid)
@@ -436,9 +472,13 @@ class BaruwaAPI
         call_api(ENDPOINTS[:fallbackservers][:delete], [serverid], data)
     end
 
-    def get_org_smarthosts(orgid)
+    def get_org_smarthosts(orgid, page=nil)
         # get organization smarthosts
-        call_api(ENDPOINTS[:orgsmarthosts][:list], [orgid])
+        params = {}
+        if page.is_a? Integer then
+            params[:page] = page
+        end
+        call_api(ENDPOINTS[:orgsmarthosts][:list], [orgid], false, params)
     end
 
     def get_org_smarthost(orgid, smarthostid)
@@ -482,7 +522,7 @@ class BaruwaAPI
             endpoint_string = endpoint[:name]
         end
         url_string = @baruwa_url + endpoint_string
-        url_string << params if params
+        url_string = url_string + '?' + get_params(params) if params
         uri = URI.parse(url_string)
         return uri
     end
